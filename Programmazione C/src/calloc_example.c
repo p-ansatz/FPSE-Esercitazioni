@@ -18,7 +18,8 @@ int main(){
         sum += *(ptr + i);
     }
 
-    printf("Sum = %d", sum);
-    free(ptr);
-    return 0;
+    printf("Sum = %d\n", sum);
+    
+    free(ptr);    
+    return EXIT_SUCCESS;
 }

@@ -1,6 +1,7 @@
 #include <time.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
  
 bool leapyear(unsigned year) {
     return !(year % 4) && ((year % 100) || !(year % 400));
@@ -24,7 +25,7 @@ struct tm time_set_yday(struct tm t) {
 int main() {
     struct tm today = {
       .tm_year = 2020-1900,
-      .tm_mon  = 4-1,
+      .tm_mon  = 2,
       .tm_mday = 19,
       .tm_hour = 10,
       .tm_min  = 0,
@@ -35,5 +36,5 @@ int main() {
     today = time_set_yday(today);
     printf("Day of the year is %d\n", today.tm_yday);
      
-    return 0
-   }
+    return EXIT_SUCCESS;
+}

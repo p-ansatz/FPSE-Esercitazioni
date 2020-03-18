@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 float weighted_mean(int x[], int w[], int n) { 
     int w_sum = 0, num = 0; 
@@ -24,7 +25,7 @@ int main(){
         printf("Weigthed mean: %g\n",result);
     }else{
         printf("n!=m\n");
-        return -1;
+        return EXIT_FAILURE;
     }
-    return 0; 
+    return EXIT_SUCCESS; 
 }  
