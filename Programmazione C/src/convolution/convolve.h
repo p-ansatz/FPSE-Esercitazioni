@@ -1,4 +1,5 @@
 #ifndef CONVOLVE_H_INCLUDED_
+
 #define CONVOLVE_H_INCLUDED_
 
 void array_fill(float *a, int a_size);

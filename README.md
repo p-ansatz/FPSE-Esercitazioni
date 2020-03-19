@@ -1,4 +1,4 @@
-# FPSE-NucleoF446RE
+# FPSE-Esercitazioni
 Esercitazioni del corso di **F**ondamenti di **P**rogrammazione dei **S**istemi **E**mbedded. 
 
 ## Software da utilizzare 
