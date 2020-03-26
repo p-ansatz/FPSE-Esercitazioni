@@ -1,4 +1,4 @@
-# Esercitazione 1 
+# Esercitazione 2
 ### Introduzione alla programmazione ed all'analisi dell'architettura hardware
 
 ## Overview 
