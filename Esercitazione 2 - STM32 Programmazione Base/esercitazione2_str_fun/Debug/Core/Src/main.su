@@ -1,0 +1,6 @@
+main.c:8:6:c_strcpy	24	static
+main.c:21:6:c_capitalize	24	static
+main.c:36:5:main	56	static
+main.c:64:6:SystemClock_Config	88	static
+main.c:109:13:MX_GPIO_Init	24	static
+main.c:128:6:Error_Handler	4	static
