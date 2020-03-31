@@ -1,5 +1,7 @@
 # Esercitazione 2
 ### Introduzione alla programmazione ed all'analisi dell'architettura hardware
+***
+</br>
 
 ## Overview 
 In questa esercitazione si introduce la programmazione per microcontrollori **STM32** della serie **F4**, partendo dalla scrittura di due semplici funzioni per il processamento di stringhe:
@@ -13,10 +15,12 @@ L'architettura **ARM** è di tipo *load-store*: se un dato che si trova in memor
 
 Grazie ad un sufficiente numero di registri, questo meccanismo, abbastanza semplice, permette di generare del software efficiente.
 
-![Register Bank](img/register_bank.png)
+<p align="center">
+  <img src="img/register_bank.png" width="70%">
+</p>
   
 ### R0 - R12
-  > Registers R0 to R12 are general purpose registers. The first eight (R0 e R7) are also called low registers. Due to the limited available space in the instruction set, many 16-bit instructions can only access the low registers. The high registers (R8 e R12) can be used with 32-bit instructions, and a few with 16-bit instructions, like MOV (move). The initial values of R0 to R12 are undefined
+  > Registers R0 to R12 are general purpose registers. The first eight (R0 e R7) are also called low registers. Due to the limited available space in the instruction set, many 16-bit instructions can only access the low registers. The high registers (R8 e R12) can be used with 32-bit instructions, and a few with 16-bit instructions. The initial values of R0 to R12 are undefined
   
 ### R13, stack pointer (SP)
   > R13 is the Stack Pointer. It is used for accessing the stack memory via PUSH and POP operations. Physically there are two different Stack Pointers: the Main Stack Pointer (MSP) is the default Stack Pointer. It is selected after reset, or when the processor is in Handler Mode. The other Stack Pointer is called the Process Stack Pointer (PSP) and can only be used in Thread Mode. The selection of Stack Pointer is determined by a special register called CONTROL. For most cases, it is not necessary to use the PSP if the application doesn't require an embedded OS.
@@ -105,3 +109,31 @@ La funzione che ha il compito di trasformare tutti in caratteri della stringa (`
 ***
 
 :bookmark: Per quanto riguarda  il modulo **ST-Link** per la programmazione ed il debugging del microcontrollore si deve far riferimento alla [pagina ufficiale](https://www.st.com/en/development-tools/st-link-v2.html), sulla quale si trovano anche i driver necessari per utilizzare il modulo su sistemi Windows 7/8/10.
+
+***
+</br></br>
+
+## Esercizi
+:pencil: Tradurre in codice Assembly la seguente funzione C:
+```c
+int c_strlen(char *s) { 
+  int i = 0; 
+  
+  while ( s[i] != '\0' ) 
+    i++; 
+  
+  return i; 
+}
+```
+
+:pencil: Scrivere in codice Assembly una funzione `main` nella quale si esegue il calcolo della sommatoria indicata di seguito. 
+
+![sum = \sum_{i=1}^{n} i^2 = 1^2+2^2+...+n^2](https://render.githubusercontent.com/render/math?math=sum%20%3D%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%20i%5E2%20%3D%201%5E2%2B2%5E2%2B...%2Bn%5E2)
+
+Si utilizzi il registro **R0** per la variabile *n*, il registro **R1** per conservare il risultato (variabile *sum*) ed un altro registro a scelta per conservare la variabile *i* che deve aumentare fino al valore *n*.
+
+Successivamente implementare la funzione in C e valutare, tramite modalità debug, quali registri vengono utilizzati ed in che modo. 
+
+:interrobang: Illustrare brevemente funzionamento e differenze tra le funzioni **MOV**, **MVN** e **MOVT**.
+
+:question: Di quanti registri vi è bisogno per conservare il risultato di un operazione come **UMLAL**?
