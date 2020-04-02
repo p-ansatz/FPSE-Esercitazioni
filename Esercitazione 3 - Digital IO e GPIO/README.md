@@ -29,8 +29,9 @@ REG &= ~0x04;   // Clear bit[2] and keep others unchanged
 
 Per utilizzare correttamente questi operatori bisogna tenere in considerazione la rappresentazione binaria dei numeri all'interno del calcolatore. A volte torna utile anche l'utilizzo della rappresentazione esadecimale, per un assegnamento più immediato dei valori.
 </br>
-|   Binary  | Dec | HEX |
-|   :---:   |:---:|:---:|
+
+|Binary| Dec | HEX |
+|:---: |:---:|:---:|
 | 0000 0001 | 1   | 0x01|
 | 0000 0010 | 2   | 0x02|
 | 0000 0100 | 4   | 0x04|
@@ -39,6 +40,8 @@ Per utilizzare correttamente questi operatori bisogna tenere in considerazione l
 | 0010 0000 | 32  | 0x20|
 | 0100 0000 | 64  | 0x40|
 | 1000 0000 | 128 | 0x80|
+
+
 Di seguito un esempio di utilizzo di operazioni *bitwise* in **C** con variabili che in memoria sono conservate in 8 bit:
 ```c
 unsigned char val1, val2, res;
