@@ -14,7 +14,7 @@ Tramite l'interfaccia di debug dell'ambiente di sviluppo *STM32Cube* si possono 
 ```
 REG = 0x04;     // Set bit[2] and clear other bits
 REG |= 0x04;    // Set bit[2] and keep others unchanged
-REG = ~0x04;    // Clear all bits except bit[2]
+REG &= 0x04;    // Clear all bits except bit[2]
 REG &= ~0x04;   // Clear bit[2] and keep others unchanged
 ```
 
@@ -197,13 +197,13 @@ Sfruttando i driver **HAL** è possibile utilizzare completamente un microcontro
 La sintassi utilizzata nella libreria **HAL** è standardizzata, favorendo uno sviluppo rapido che permette di realizzare del software (parzialmente) indipendente dall'hardware utilizzato. 
 
 <p align="center">
-    <img src="img/hal_syntax.png" width="90%">
+    <img src="img/hal_syntax.png" width="80%">
 </p>
 
 I driver **HAL** sono suddivisi in due categorie: una contenente delle API generiche per tutti i microcontrollori STM32, una che include le personalizzazioni specifiche di una data famiglia di microcontrollori.
 
 <p align="center">
-    <img src="img/hal_files.png" width="80%"
+    <img src="img/hal_files.png" width="70%"
 <p>
 
 
@@ -212,7 +212,7 @@ Per l'implementazione dell'esercizio desiderato si farà uso di pulsanti e LED e
 A tal proposito, si presti attenzione ad effettuare correttamente la connessione fisica tra il pulsante ed il **GPIO** sulla scheda facendo ricorso a basilari conoscenze di elettronica.
 
 <p align="center">
-    <img src="img/gpio_connection.png" width="90%"
+    <img src="img/gpio_connection.png" width="80%"
 <p>
 
 I pulsanti connessi come *input* alla scheda devono essere usati per comandare dei *segnali di output logici* che gestiscono lo stato dei LED: si associa quindi, ad ogni pulsante - connesso ad un **GPIO** come *input* - un LED - connesso ad un **GPIO** come dispositivo di *output*.
