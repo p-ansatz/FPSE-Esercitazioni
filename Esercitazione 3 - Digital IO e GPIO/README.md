@@ -185,7 +185,7 @@ Dunque, per l'accesso ai registri delle periferiche **GPIO** si può scrivere qu
 ```c
 GPIOA->MODER &= ~(0x01 << 4); // Clear bit 4 of the GPIOA MODER
 ```
-Per informazioni più accurate si può far riferimento al [Reference Manual](https://www.st.com/resource/en/reference_manual/dm00135183.pdf) o alla [descrizione ufficiale delle librerie HAL](https://www.st.com/resource/en/user_manual/dm00105879-description-of-stm32f4-hal-and-ll-drivers-stmicroelectronics.pdf) incluse in progetti *STM32Cube*.
+Per informazioni più accurate si può far riferimento al [Reference Manual](https://www.st.com/resource/en/reference_manual/dm00135183.pdf) o alla [descrizione ufficiale delle librerie HAL](https://www.st.com/resource/en/user_manual/dm00105879-description-of-stm32f4-hal-and-ll-drivers-stmicroelectronics.pdf), incluse di default in progetti *STM32Cube*.
 
 </br>
 
@@ -197,13 +197,13 @@ Sfruttando i driver **HAL** è possibile utilizzare completamente un microcontro
 La sintassi utilizzata nella libreria **HAL** è standardizzata, favorendo uno sviluppo rapido che permette di realizzare del software (parzialmente) indipendente dall'hardware utilizzato. 
 
 <p align="center">
-    <img src="img/hal_syntax.png" width="80%">
+    <img src="img/hal_syntax.png" width="60%">
 </p>
 
 I driver **HAL** sono suddivisi in due categorie: una contenente delle API generiche per tutti i microcontrollori STM32, una che include le personalizzazioni specifiche di una data famiglia di microcontrollori.
 
 <p align="center">
-    <img src="img/hal_files.png" width="70%"
+    <img src="img/hal_files.png" width="60%"
 <p>
 
 
@@ -227,7 +227,7 @@ L'implementazione del software si realizza in *STM32Cube* senza necessariamente 
 ```c
 RCC->AHB1ENR |= 0x3;
 ```
-A questo punto si può abilitare il **GPIOA10** come ingresso configurandolo in *pull-up-mode* e il **GPIOB10** come uscita, abilitandolo in *pull-up-mode* e con tipo di output *push-pull*.
+A questo punto si può abilitare il **GPIOA10** come ingresso configurandolo in *pull-up-mode* e il **GPIOB10** come uscita, anch'esso in *pull-up-mode* e con tipo di output *push-pull*.
 ```c
 GPIOA->MODER  &= ~(0x03 << 20); // Clear GPIOA10
 GPIOA->MODER |= (0x00 << 20);   // Set Input
@@ -246,6 +246,10 @@ REG &=  ~(0x3 << 20);
 ```
 
 L'intero codice dell'applicazione si trova nella cartella **digital_io_stm32**, cartella contenente l'intero progetto per *STM32Cube*.
+
+:warning: 
+Lavorando con i pulsanti, si presti attenzione ai problemi fisici come il *bouncing*.
+> "When the switch is closed, the two contacts actually separate and reconnect, typically 10 to 100 times over a periode of about 1ms." ("The Art of electronics", Horowitz & Hill, Second edition, pag 506.)
 ***
 </br> </br>
 
@@ -255,7 +259,7 @@ L'intero codice dell'applicazione si trova nella cartella **digital_io_stm32**, 
 Con la stessa logica utilizzata nell'esempio precedente, abilitare altri due pin di ingresso su due **GPIO** della porta **B**, connettendoli ad altri due pulsanti, ed altri due pin di uscita su **GPIO** della porta **A**, connettendo altri due LED. Collegare logicamente ogni pulsante (ingresso) ad un LED (in uscita) e fare in modo che alla pressione di ogni pulsante si accenda un LED diverso. Testare il funzionamento dell'intero programma valutando anche le variazioni dei registri tramite interfaccia di debug. Si faccia attenzione ad utilizzare le opportune resistenze per la connessione di LED e pulsanti, come indicato.
 
 :pencil:
-Scrivere del codice C che, operando su un valore a 8 bit (`unsigned char`), configuri i bit 4, 5 e 6 rispettivamente ai valori 1, 0 e 1; lasciando tutti i restanti a 0.
+Scrivere del codice **C** che, operando su un valore a 8 bit (`unsigned char`), configuri i bit 4, 5 e 6 rispettivamente ai valori 1, 0 e 1; lasciando tutti i restanti a 0.
 
 :question:
 Cosa rappresenta la *velocità* di un **GPIO** configurato come output? In quale registro viene conservata questa informazione e qual'è il valore di configurazione di default?
