@@ -18,6 +18,7 @@ Esercitazioni del corso di **F**ondamenti di **P**rogrammazione dei **S**istemi 
 * [STM32F446xx - Reference Manual](https://www.st.com/resource/en/reference_manual/dm00135183-stm32f446xx-advanced-arm-based-32-bit-mcus-stmicroelectronics.pdf)
 * [STM32F446xC/E - Datasheet](https://www.st.com/resource/en/datasheet/stm32f446mc.pdf)
 * [STM32 Cortex M4 Programming Manual](https://www.st.com/resource/en/programming_manual/dm00046982-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf)
+* [STM32 Description of STM32F4 HAL and LL drivers](https://www.st.com/resource/en/user_manual/dm00105879-description-of-stm32f4-hal-and-ll-drivers-stmicroelectronics.pdf)
 
 ### CN5 Header Pinout
 ![CN5 Header](https://os.mbed.com/media/uploads/adustm/nucleo_f446re_arduino_right_2016_7_22.png)
