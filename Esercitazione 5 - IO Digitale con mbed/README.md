@@ -24,7 +24,7 @@ Fornisce una interfaccia software standardizzata comprendente funzioni di utilit
 Inoltre, la sua componente centrale (**CMSIS-Core**) è decisamente moderata dal punto di vista delle risorse richieste al microcontrollore: circa 1Kb di codice ed appena 4 byte di RAM.
 
 <p align="center">
-    <img src="img/CMSIS_diagram.png" width="70%">
+    <img src="img/CMSIS_Diagram.png" width="70%">
 </p>
 
 ### MBED SDK
