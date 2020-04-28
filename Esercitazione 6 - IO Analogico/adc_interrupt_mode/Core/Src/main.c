@@ -8,9 +8,12 @@ ADC_HandleTypeDef hadc1; // ADC configuration structure
 void SystemClock_Config(void);
 static void MX_ADC1_Init(void);
 
+void LED_Init(void);
 /* ADC ISR Handler*/
 void ADC_IRQHandler(void) {
 	HAL_ADC_IRQHandler(&hadc1);
+	// Re-Start ADC in interrupt Mode
+	HAL_ADC_Start_IT(&hadc1) ;
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc) {
@@ -36,18 +39,35 @@ int main(void){
   /* Initialize all configured peripherals */
   /* ADC Initialization*/
   MX_ADC1_Init();
+  /* LED Initialization */
+  LED_Init();
 
   // Interrupt configuration for ADC
   NVIC_SetPriority(ADC_IRQn, 0);
   NVIC_EnableIRQ(ADC_IRQn);
+  // Start ADC in interrupt Mode
   HAL_ADC_Start_IT(&hadc1);
 
   /* Infinite loop */
   while (1){
-    ;
+	  // Led Toggle
+	  GPIOA->ODR ^= (0x1 << 5);
+	  HAL_Delay(500);
   }
 
 }
+
+void LED_Init(void){
+	// Init led on PA_5
+	RCC->AHB1ENR |= 0x01;
+	GPIOA->MODER |= (0x01 << 10);
+	GPIOA->OTYPER &= ~(0x01 << 5);
+	GPIOA->PUPDR &= ~(0x03 << 10);
+	GPIOA->PUPDR |= (0x01 << 5);
+
+	GPIOA->ODR |= (0x01 << 5); // LED ON
+}
+
 
 /**
   * @brief System Clock Configuration
@@ -114,9 +134,9 @@ static void MX_ADC1_Init(void)
   */
   hadc1.Instance = ADC1;
   hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
-  hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+  hadc1.Init.Resolution = ADC_RESOLUTION_8B;
   hadc1.Init.ScanConvMode = DISABLE;
-  hadc1.Init.ContinuousConvMode = ENABLE;
+  hadc1.Init.ContinuousConvMode = DISABLE;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;

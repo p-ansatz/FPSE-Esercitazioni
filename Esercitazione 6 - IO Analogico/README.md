@@ -385,6 +385,22 @@ La gestione dei valori convertiti dall'**ADC** viene effettuata all'interno del 
 
 Per quanto riguarda le configurazioni delle principali strutture, si fa uso, come fatto in precedenza, di *STM32CubeMX*, che genererà automaticamente il codice a seguito di una fase di configurazione grafica.
 
+##
+
+Per poter utilizzare l'**ADC** in modalità interrupt ed essere in grado di eseguire anche del codice che si trova all'interno del ciclo di vita principale del programma (il `while(1)`) potrebbe essere necessario adottare la seguente soluzione: 
+disabilitare la modalità di conversione continua, quindi:
+```c
+hadc1.Init.ContinuousConvMode = DISABLE;
+```
+nella funzione `MX_ADC1_Init()`; comandare manualmente il riavvio del **ADC** a seguito di ogni conversione, riscrivendo dunque la **ISR** in questo modo:
+```c
+void ADC_IRQHandler(void) {
+	HAL_ADC_IRQHandler(&hadc1);
+    HAL_ADC_Start_IT(&hadc1);
+}
+```
+Si noti che viene re-invocata la funzione `HAL_ADC_Start_IT(&hadc1);`, che si trova anche nel `main` prima del ciclo infinito, poiché in *modalità non continua*, l'**ADC** si interrompe automaticamente dopo ogni conversione.
+
 
 </br> </br>
 
