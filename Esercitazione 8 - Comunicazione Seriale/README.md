@@ -66,7 +66,7 @@ I valori che permettono di definire il *baud rate* e tutti gli altri parametri d
 
 :information_source: Per il microcontrollore STM32F446RE, la comunicazione **USART2** passa attraverso i pin PA_2 e PA_3, questi mettono in comunicazione internamente il microcontrollore ed il modulo ST-Link. Sono utilizzati quindi per instaurare una comunicazione tra i due elementi e dunque per mettere in comunicazione il microcontrollore con il PC, tramite porta USB. Questa comunicazione è utilizzata implicitamente in tutte le fasi di programmazione e debugging del microcontrollore.  Dunque, finché si farà uso del modulo ST-Link sarà impossibile utilizzare questi pin per altri scopi.
 
-La comunicazione mediante **UART** si può mettere in pratica in tre modalità: *polling*, *interrupt* o **DMA mode*.
+La comunicazione mediante **UART** si può mettere in pratica in tre modalità: *polling*, *interrupt* o *DMA mode*.
 
 - *Polling Mode*
 > The main application, or one of its threads, synchronously waits for the data transmission and reception. This is the most simple form of data communication using this peripheral, and it can be used when the transmit rate is not too much low and when the UART is not used as critical peripheral in our application 
@@ -186,6 +186,13 @@ while (1){
 ```
 utilizzando un particolare accorgimento per inviare l'intero numero `float` sotto forma di bytes (come una stringa di caratteri che rappresentano il numero). L'alternativa sarebbe stata trasformare in maniera più "manuale" il valore decimale in una valore ad 8 bit, mettendo magari nell'array, in maniera separata, parte intera e parte decimale. In entrambi i casi si lascia al ricevitore l'onere di ricostruire il valore ricevuto.
 
+Si faccia attenzione al fatto che, per utilizzare la funzione `sprintf()` è necessario attivare un campo di configurazione della sezione *Tool Setting* del progetto; come illustrato nello screenshot seguente.
+
+<p align="center">
+    <img src="img/printf_set.png">
+</p>
+
+##
 
 Per usare invece la periferica **UART** in *modalità interrupt* è necessario utilizzare la interrupt associata a tale periferica ed intercettata dalla funzione `USARTx_IRQHandler()`. All'interno di questa funzione deve essere invocata `HAL_UART_IRQHandler()`, che si occuperà di invocare tutte le funzioni relative alle attività della periferica **UART**, gestendola in questa modalità *interrupt*.
 
@@ -195,7 +202,7 @@ HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, uint8_t *pData
 ```
 o
 ```c
-HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+HAL_StatusTypeDef HAL_UART_Receive_IT (UART_HandleTypeDef * huart, uint8_t * pData, uint16_t Size)
 ```
 a seconda che si voglia effettuare la trasmissione o la ricezione. 
 
@@ -221,10 +228,7 @@ void read_UART_input() {
 che viene invocata nel ciclo di vita principale del programma, ma non è bloccante per il sistema, infatti il microcontrollore può continuare ad eseguire altre operazioni mentre attende di ricevere un carattere. 
 
 Si noti che, la non ripetuta invocazione della funzione 
-```c
-HAL_StatusTypeDef HAL_UART_Receive_IT (UART_HandleTypeDef * huart, uint8_t * pData, uint16_t Size)
-``` 
-è garantita dall'utilizzo adeguato della flag `UartReady`, definita come tipo `ITStatus`, si tratta di una `enum` definita per essere usata in queste situazioni con i valori **SET** (=1) e **RESET** (=0).
+`HAL_UART_Receive_IT` è garantita dall'utilizzo adeguato della flag `UartReady`, definita come tipo `ITStatus`, si tratta di una `enum` definita per essere usata in queste situazioni con i valori **SET** (=1) e **RESET** (=0).
 
 
 ## Comunicazione USART con mbed
@@ -274,3 +278,20 @@ while(1) {
 Questa comunicazione seriale, che arriva al PC tramite la porta USB, è indispensabile per programmare il microcontrollore ed operare con il debugger, ecco perché, di default, viene sempre attivata su una scheda di sviluppo del genere (con un *baud rate* di 9600).
 
 Comunque, per un utilizzo appropriato della funzione `printf()` è bene passare per l'inizializzazione di un oggetto **Serial**, anche per semplici scopi di debugging; si può far riferimento a quanto riportato dalla [documentazione](https://os.mbed.com/docs/mbed-os/v5.15/tutorials/debugging-using-printf-statements.html) di *mbed* per chiarire questo funzionamento.
+
+
+***
+
+:computer:
+Per analizzare/valutare e "interagire" con la comunicazione **UART** è possibile utilizzare uno tra diversi software che si trovano facilmente in rete. Uno di questi è [*Real Term*](https://realterm.sourceforge.io), che offre la possibilità di aprire la comunicazione **UART** a con diversi *baud rate* e diverse configurazioni. Inoltre può essere usato anche come trasmettitore per inviare dati ad una periferica **UART** connessa al PC. Di seguito sono illustrate le due interfacce principali, evidenziando le principali sezioni di interazione.
+
+<p align="center">
+    <img src="img/realterm1.png">
+</p>
+
+<p align="center">
+    <img src="img/realterm2.png">
+</p>
+
+
+Delle alternative potrebbero essere [Putty](https://www.putty.org) o [TeraTerm](https://ttssh2.osdn.jp/index.html.en).
