@@ -27,10 +27,10 @@ Esercitazioni del corso di **F**ondamenti di **P**rogrammazione dei **S**istemi 
 * [**Fast and effective embedded systems design - Applying the ARM mbed** | Rob Toulson, Tim Wilmshurst](https://www.amazon.it/Fast-Effective-Embedded-Systems-Design/dp/0081008805)
 
 ### Header pinout
-* [CN5 Header Pinout](HeaderPinout.md#CN5-Header-Pinout)
-* [CN6 Header Pinout](HeaderPinout.md#CN6-Header-Pinout)
-* [CN7 Header Pinout](HeaderPinout.md#CN7-Header-Pinout)
-* [CN10 Header Pinout](HeaderPinout.md#CN10-Header-Pinout)
+* [CN5 Header Pinout](HeadersPinout.md#CN5-Header-Pinout)
+* [CN6 Header Pinout](HeadersPinout.md#CN6-Header-Pinout)
+* [CN7 Header Pinout](HeadersPinout.md#CN7-Header-Pinout)
+* [CN10 Header Pinout](HeadersPinout.md#CN10-Header-Pinout)
 
 
 ## Indice degli argomenti trattati
@@ -60,6 +60,10 @@ Esercitazioni del corso di **F**ondamenti di **P**rogrammazione dei **S**istemi 
     * [UART/USART](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/master/Esercitazione%208%20-%20Comunicazione%20Seriale#uart-e-usart)
         * [UART in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/master/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-usart-con-stm32cube)
         * [UART con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/master/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-usart-con-mbed)
+
+    * [I<sup>2</sup>C](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/master/Esercitazione%208%20-%20Comunicazione%20Seriale#i2c)
+        * [I<sup>2</sup>C in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/master/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-i2c-in-stm32cube)
+        * [I<sup>2</sup>C con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/master/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-i2c-con-mbed) 
 
 
 
