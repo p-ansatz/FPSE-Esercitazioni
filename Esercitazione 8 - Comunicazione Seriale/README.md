@@ -10,9 +10,9 @@ In questa esercitazione si utilizzeranno le principali interfacce di comunicazio
 * [UART/USART](#uart-e-usart)
     * [Comunicazione UART/USART in STM32Cube](#Comunicazione-usart-in-stm32cube)
     * [Comunicazione UART con mbed](#Comunicazione-uart-con-mbed)
-* [I²C](#I²C)
-    * [Comunicazione I²C in STM32Cube](#Comunicazione-I²C-in-stm32cube)
-    * [Comunicazione I²C con mbed](#Comunicazione-I²C-con-mbed)
+* [I²C](#I&sup2;C)
+    * [Comunicazione I²C in STM32Cube](#Comunicazione-I&sup2;C-in-stm32cube)
+    * [Comunicazione I²C con mbed](#Comunicazione-I&sup2;C-con-mbed)
 
 
 ## Requisiti Teorici
