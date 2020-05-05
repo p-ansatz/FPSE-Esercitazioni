@@ -10,9 +10,9 @@ In questa esercitazione si utilizzeranno le principali interfacce di comunicazio
 * [UART/USART](#uart-e-usart)
     * [Comunicazione UART/USART in STM32Cube](#Comunicazione-usart-in-stm32cube)
     * [Comunicazione UART con mbed](#Comunicazione-uart-con-mbed)
-* [I<sup>2</sup>C](#I<sup>2</sup>C)
-    * [Comunicazione I<sup>2</sup>C in STM32Cube](#Comunicazione-I<sup>2</sup>C-in-stm32cube)
-    * [Comunicazione I<sup>2</sup>C con mbed](#Comunicazione-I<sup>2</sup>C-con-mbed)
+* [I<sup>2</sup>C](#I2C)
+    * [Comunicazione I<sup>2</sup>C in STM32Cube](#Comunicazione-I2C-in-stm32cube)
+    * [Comunicazione I<sup>2</sup>C con mbed](#Comunicazione-I2C-con-mbed)
 
 
 ## Requisiti Teorici
@@ -79,7 +79,7 @@ La comunicazione mediante **UART** si può mettere in pratica in tre modalità: 
 - *Interrupt Mode*
 > The main application is freed from waiting for the completion of data transmission and reception. The data transfer routines terminate as soon as they complete to configure the peripheral. When the data transmission ends, a subsequent interrupt will signal the main code about this.
 
-## I<sup>2</sup>C
+## I2C
 L'acronimo **I²C** sta per "**I**nter **I**ntegrated **C**ircuit" ed è anch'esso un protocollo di comunicazione seriale che opera in accordo a relazioni di tipo *master-slave*. 
 
 Per funzionare utilizza fisicamente due fili, ciò significa che i dati viaggiano esclusivamente in una direzione alla volta.
@@ -100,7 +100,7 @@ Oltre ai valori in bit propri del dato da trasferire, sul bus **I²C** si trovan
 
 Se la periferica *slave* con l'indirizzo indicato esiste sul bus **I²C**, questa risponderà con un ACK ed il *master* potrà avviare la trasmissione o mettersi in ricezione.
 
-### I<sup>2</sup>C nei microcontrollori STM32
+### I2C nei microcontrollori STM32
 Nel microcontrollore utilizzato vi sono quattro bus per interfacciamento **I²C**, che possono operare sia in modalità *master* che *slave*; tre di questi bus possono lavorare, oltre che nella modalità standard (fino a 100KHz) in una particolare modalità veloce (fino a 400KHz).
 
 Tra le caratteristiche principali vi sono la possibilità di indirizzare con valori a 7 bit o 10 bit ed un circuito hardware integrato per il controllo d'errore.
@@ -328,7 +328,7 @@ Comunque, per un utilizzo appropriato della funzione `printf()` è bene passare 
 
 ***
 
-## Comunicazione I²C in STM32Cube
+## Comunicazione I2C in STM32Cube
 Di seguito si mostra un esempio di comunicazione **I²C** tra il microcontrollore ed un modulo esterno che è il sensore [MPU-6050](https://invensense.tdk.com/products/motion-tracking/6-axis/mpu-6050/) della InvenSense. 
 
 Per poter utilizzare questo sensore (come si farebbe per qualsiasi altro modulo **I²C**) è necessario approfondire la documentazione rilasciata dalla casa produttrice, nella quale si trovano tutte le informazioni fisiche/elettriche e quelle relative all'utilizzo del sensore con un protocollo **I²C**.
@@ -436,7 +436,7 @@ while (1){
 }
 ```
 
-## Comunicazione I<sup>2</sup>C con mbed
+## Comunicazione I2C con mbed
 Per gestire periferiche **I²C** utilizzando la piattaforma *mbed* si fa utilizzo dell'oggetto [`I2C`](https://os.mbed.com/docs/mbed-os/v5.15/apis/i2c.html), descritto ed utilizzato di seguito.
 ### I2C
 > The I2C interface provides I2C Master functionality. I2C is a two wire serial protocol that allows an I2C Master to exchange data with an I2C Slave.
