@@ -64,6 +64,9 @@ Esercitazioni del corso di **F**ondamenti di **P**rogrammazione dei **S**istemi 
     * [I<sup>2</sup>C](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/master/Esercitazione%208%20-%20Comunicazione%20Seriale#i2c)
         * [I<sup>2</sup>C in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/master/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-i2c-in-stm32cube)
         * [I<sup>2</sup>C con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/master/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-i2c-con-mbed) 
+     * [SPI](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/master/Esercitazione%208%20-%20Comunicazione%20Seriale#spi)
+        * [SPI in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/master/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-spi-in-stm32cube)
+        * [SPI con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/master/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-spi-con-mbed)
 
 
 
