@@ -7,7 +7,6 @@ static float accelScalingFactor, gyroScalingFactor; // Accel and Gyro Scaling Fa
 static int16_t AccelRW[3];
 static int16_t GyroRW[3];
 
-
 /* Initilization - Configuration */
 void MPU6050_Init(I2C_HandleTypeDef *hi2c, MPU_ConfigTypeDef *config){	
 	// Save the i2c handler internally

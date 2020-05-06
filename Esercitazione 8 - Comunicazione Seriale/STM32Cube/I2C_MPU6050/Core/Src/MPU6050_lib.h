@@ -99,7 +99,7 @@ typedef struct{
 }ScaledData_Def;
 
 /* MPU6050 functions */
-// I2C Handler Initialization
+// Initilization - Configuration
 void MPU6050_Init(I2C_HandleTypeDef *hi2c, MPU_ConfigTypeDef *config);
 // Get Raw Data from the sensor
 void MPU6050_Read_RawData(RawData_Def *accel_rawDef, RawData_Def *gyro_rawDef);
