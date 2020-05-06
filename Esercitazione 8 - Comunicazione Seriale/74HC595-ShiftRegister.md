@@ -38,3 +38,8 @@ Sui valori delle uscite `Q`, da `A` a `H`, si avranno in forma parallela i segna
 |16	|**VCC**	|Supply Voltage|
 
 In definitiva, il sistema di funzionamento è molto semplice: al fronte di salita del clock **SRCLK**, il dato presente su **SER** viene caricato nello *Shift Register* e quando si rileva un fronte di salita su **RCLK** il dato nel registro viene portato in output su **QA**...**QH**.
+
+***
+</br>
+
+:link: [SN74HC595](http://www.ti.com/product/SN74HC595)
