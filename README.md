@@ -19,6 +19,7 @@ Esercitazioni del corso di **F**ondamenti di **P**rogrammazione dei **S**istemi 
 * [STM32F446xC/E - Datasheet](https://www.st.com/resource/en/datasheet/stm32f446mc.pdf)
 * [STM32 Cortex M4 Programming Manual](https://www.st.com/resource/en/programming_manual/dm00046982-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf)
 * [STM32 Description of STM32F4 HAL and LL drivers](https://www.st.com/resource/en/user_manual/dm00105879-description-of-stm32f4-hal-and-ll-drivers-stmicroelectronics.pdf)
+* [Developing applications on STM32Cube with RTOS - User Manual](https://www.st.com/resource/en/user_manual/dm00105262-developing-applications-on-stm32cube-with-rtos-stmicroelectronics.pdf)
 
 ### Libri
 * [**Modern C** | Jens Gustedt](https://www.manning.com/books/modern-c)
@@ -67,6 +68,10 @@ Esercitazioni del corso di **F**ondamenti di **P**rogrammazione dei **S**istemi 
      * [SPI](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/master/Esercitazione%208%20-%20Comunicazione%20Seriale#spi)
         * [SPI in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/master/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-spi-in-stm32cube)
         * [SPI con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/master/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-spi-con-mbed)
+* [Sistemi Embedded e RTOS](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/master/Esercitazione%209%20-%20RTOS#sistemi-embedded-e-rtos)
+    * [CMSIS-RTOS](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/master/Esercitazione%209%20-%20RTOS#cmsis-rtos)
+    * [RTOS in STM32Cube // FreeRTOS](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/master/Esercitazione%209%20-%20RTOS#rtos-in-stm32cube--freertos)
+    * [RTOS con mbed // RTX](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/master/Esercitazione%209%20-%20RTOS#rtos-con-mbed--rtx)
 
 
 
