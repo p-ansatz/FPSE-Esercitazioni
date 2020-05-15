@@ -204,14 +204,14 @@ RCC->AHB1ENR |= (0x01 << 0);  // Abilitazione GPIOA clock
 ```
 2. Configurazione dei pin PA_2 e PA_3 in modalità veloce e *alternate function mode*
 ```c
-GPIOA->MODER &= ~(0x0F << 6);  // Clear MODER GPIOA2/3
-GPIOA->MODER |= (0x0A << 6);   // Set Alternate function mode
-GPIOA->OSPEEDR |= (0x0A << 6); // Set Fast Speed
+GPIOA->MODER &= ~(0x0F << 4);  // Clear MODER GPIOA2/3
+GPIOA->MODER |= (0x0A << 4);   // Set Alternate function mode
+GPIOA->OSPEEDR |= (0x0A << 4); // Set Fast Speed
 
 GPIOA->AFR[0] |= (0b111 << 8);
 GPIOA->AFR[0] |= (0b111 << 12);
 ```
- &nbsp; si noti che i registri **AFRL** e **AFRH** sono implementati utilizzando un array di due elementi `AFR[0]` e `AFR[1]`. </br> &nbsp; Per la loro configurazione fare riferimento al datasheet ed alle tabelle, come [quella estratta](docs/AlternateFunctionTab.pdf) e messa nella sottocartella *docs*.
+ &nbsp; si noti che i registri **AFRL** e **AFRH** sono implementati utilizzando un array di due elementi: `AFR[0]` e `AFR[1]`. </br> &nbsp; Per la loro configurazione fare riferimento al datasheet ed alle tabelle, come [quella estratta](docs/AlternateFunctionTab.pdf) e messa nella sottocartella *docs*.
 
 3. Configurazione della lunghezza di trasmissione, dei valori di parità e di altri eventuali parametri
 ```c

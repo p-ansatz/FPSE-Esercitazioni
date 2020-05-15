@@ -38,9 +38,9 @@ void myUART_init(){
 	RCC->AHB1ENR |= (0x01 << 0);
 
 	/* Configurazione GPIO*/
-	GPIOA->MODER &= ~(0x0F << 6);  // Clear MODER GPIOA2/3
+	GPIOA->MODER &= ~(0x0F << 4);  // Clear MODER GPIOA2/3
 	GPIOA->MODER |= (0x0A << 4);   // Set Alternate function mode
-	GPIOA->OSPEEDR |= (0x0A << 6); // Set Fast Speed
+	GPIOA->OSPEEDR |= (0x0A << 4); // Set Fast Speed
 
 	// AF7 per USART2
 	GPIOA->AFR[0] |= (0b111 << 8); // AFR[0] = ARFL
