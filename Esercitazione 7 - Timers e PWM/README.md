@@ -386,7 +386,11 @@ HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
 ```
 alla quale si passano come parametri l'istanza del **timer** in uso ed il riferimento al canale da utilizzare (individuato dalla *keyword* `TIM_CHANNEL_1`, che identifica il canale configurato precedentemente). 
 
-Per un'analisi adeguata del segnale generato e per apprezzare le variazioni del **duty cycle** al variare dei parametri del **timer**, il modo migliore è quello di utilizzare un oscilloscopio.
+Per un'analisi adeguata del segnale generato e per apprezzare le variazioni del **duty cycle** al variare dei parametri del **timer**, il modo migliore è quello di utilizzare un oscilloscopio. Con il codice descritto, facendo variare il *duty cycle* tra 50% e 80%, ciò che si otterrà è il seguente risultato:
+
+<p align="center">
+    <img src="img/pwmexample.png" width="80%">
+</p>
 
 Altro modo per valutare gli effetti di un segnale **PWM** consiste nell'utilizzarne il valor medio per gestire l'intensità luminosa di un LED. La variazione di questo valor medio passa ovviamente per una variazione del **duty cycle**. 
 
