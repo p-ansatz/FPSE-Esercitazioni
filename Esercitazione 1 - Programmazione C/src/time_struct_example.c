@@ -24,9 +24,9 @@ struct tm time_set_yday(struct tm t) {
 
 int main() {
 		struct tm today = {
-			.tm_year = 2020-1900,
+			.tm_year = 2021-1900,
 			.tm_mon  = 2,
-			.tm_mday = 19,
+			.tm_mday = 5,
 			.tm_hour = 10,
 			.tm_min  = 0,
 			.tm_sec  = 47,

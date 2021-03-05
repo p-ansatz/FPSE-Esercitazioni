@@ -1,14 +1,11 @@
 # FPSE-Esercitazioni
-Esercitazioni del corso di **F**ondamenti di **P**rogrammazione dei **S**istemi **E**mbedded.  
-
+Esercitazioni del corso di **F**ondamenti di **P**rogrammazione dei **S**istemi **E**mbedded. 
 
 
 ## Riferimenti ed utilità
 
 ### Software e Ambienti di Sviluppo
-* [STM32Cube](https://www.st.com/en/ecosystems/stm32cube.html)
-* [Mbed online compiler](https://ide.mbed.com/compiler)
-* [Mbed Studio](https://os.mbed.com/studio)
+* [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html#tools-software)
 
 ### Hardware -consigliato-
 * [STM32 Nucleo-F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html)
@@ -37,43 +34,44 @@ Esercitazioni del corso di **F**ondamenti di **P**rogrammazione dei **S**istemi 
 
 
 ## Indice degli argomenti trattati
-* [Basi di programmazione in C](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%201%20-%20Programmazione%20C)
-* [Programmazione per microcontrollori STM32](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%202%20-%20STM32%20Programmazione%20Base)
-    * [Architettura a Registri](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%202%20-%20STM32%20Programmazione%20Base#architettura-arm-registri)
-    * [Operazioni bitwise](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%203%20-%20Digital%20IO%20e%20GPIO#dettagli-per-lo-sviluppo)
-* [GPIO](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%203%20-%20Digital%20IO%20e%20GPIO#gpio-e-registri-per-la-loro-gestione)
-    * [Programmazione base con GPIO in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%203%20-%20Digital%20IO%20e%20GPIO#implementazione)
-    * [Programmazione GPIO con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%205%20-%20IO%20Digitale%20con%20mbed#implementazione-ed-altri-dettagli)
-* [Interrupt](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%204%20-%20GPIO%20e%20Interrupt#requisiti-teorici)
-    * [Utilizzo delle interrupts in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%204%20-%20GPIO%20e%20Interrupt#implementazione-e-altri-dettagli)
-    * [Utilizzo delle interrupts con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%205%20-%20IO%20Digitale%20con%20mbed#interruptin)
-* [ADC](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%206%20-%20IO%20Analogico#requisiti-teorici)
-    * [Utilizzo dell'ADC in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%206%20-%20IO%20Analogico#io-analogico-con-stm32cube)
-        * [Polling Mode](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%206%20-%20IO%20Analogico#polling-mode)
-        * [Interrupt Mode](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%206%20-%20IO%20Analogico#interrupt-mode)
-    * [Utilizzo di ADC e DAC con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%206%20-%20IO%20Analogico#io-analogico-con-mbed)
-* [Timers](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%207%20-%20Timers%20e%20PWM#timers)
-    * [Basic Timers in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%207%20-%20Timers%20e%20PWM#alarm_clock-basic-timers)
-    * [General Purpose Timers in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%207%20-%20Timers%20e%20PWM#watch-general-timers)
-    * [Utilizzo dei Timers con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%207%20-%20Timers%20e%20PWM#utilizzo-dei-timers-in-mbed)
-* [PWM](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%207%20-%20Timers%20e%20PWM#pulse-width-modulation-pwm)
-    * [Generazione PWM in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%207%20-%20Timers%20e%20PWM#generazione-pwm-in-stm32cube)
-    * [Generazione PWM con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%207%20-%20Timers%20e%20PWM#generazione-pwm-con-mbed)
-* [Comunicazione Seriale](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%208%20-%20Comunicazione%20Seriale#requisiti-teorici)
-    * [UART/USART](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%208%20-%20Comunicazione%20Seriale#uart-e-usart)
-        * [UART in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-usart-con-stm32cube)
-        * [UART con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-usart-con-mbed)
-
-    * [I<sup>2</sup>C](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%208%20-%20Comunicazione%20Seriale#i2c)
-        * [I<sup>2</sup>C in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-i2c-in-stm32cube)
-        * [I<sup>2</sup>C con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-i2c-con-mbed) 
-     * [SPI](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%208%20-%20Comunicazione%20Seriale#spi)
-        * [SPI in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-spi-in-stm32cube)
-        * [SPI con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-spi-con-mbed)
+* [Basi di programmazione in C](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%201%20-%20Programmazione%20C)
+* [Programmazione per microcontrollori STM32](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%202%20-%20STM32%20Programmazione%20Base)
+    * [Architettura a Registri](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%202%20-%20STM32%20Programmazione%20Base#architettura-arm-registri)
+    * [Operazioni bitwise](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%203%20-%20Digital%20IO%20e%20GPIO#dettagli-per-lo-sviluppo)
+* [GPIO](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%203%20-%20Digital%20IO%20e%20GPIO#gpio-e-registri-per-la-loro-gestione)
+    * [Programmazione base con GPIO in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%203%20-%20Digital%20IO%20e%20GPIO#implementazione)
+* [Interrupt](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%204%20-%20GPIO%20e%20Interrupt#requisiti-teorici)
+    * [Utilizzo delle interrupts in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%204%20-%20GPIO%20e%20Interrupt#implementazione-e-altri-dettagli)
+* [ADC](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%206%20-%20IO%20Analogico#requisiti-teorici)
+    * [Utilizzo dell'ADC in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%206%20-%20IO%20Analogico#io-analogico-con-stm32cube)
+        * [Polling Mode](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%206%20-%20IO%20Analogico#polling-mode)
+        * [Interrupt Mode](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%206%20-%20IO%20Analogico#interrupt-mode)
+* [Timers](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%207%20-%20Timers%20e%20PWM#timers)
+    * [Basic Timers in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%207%20-%20Timers%20e%20PWM#alarm_clock-basic-timers)
+    * [General Purpose Timers in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%207%20-%20Timers%20e%20PWM#watch-general-timers)
+* [PWM](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%207%20-%20Timers%20e%20PWM#pulse-width-modulation-pwm)
+    * [Generazione PWM in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%207%20-%20Timers%20e%20PWM#generazione-pwm-in-stm32cube)
+* [Comunicazione Seriale](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%208%20-%20Comunicazione%20Seriale#requisiti-teorici)
+    * [UART/USART](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%208%20-%20Comunicazione%20Seriale#uart-e-usart)
+        * [UART in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-usart-con-stm32cube)
+    * [I<sup>2</sup>C](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%208%20-%20Comunicazione%20Seriale#i2c)
+        * [I<sup>2</sup>C in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-i2c-in-stm32cube)
+    * [SPI](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%208%20-%20Comunicazione%20Seriale#spi)
+        * [SPI in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-spi-in-stm32cube)
 * [Sistemi Embedded e RTOS](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%209%20-%20RTOS#sistemi-embedded-e-rtos)
     * [CMSIS-RTOS](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%209%20-%20RTOS#cmsis-rtos)
     * [RTOS in STM32Cube // FreeRTOS](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%209%20-%20RTOS#rtos-in-stm32cube--freertos)
-    * [RTOS con mbed // RTX](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%209%20-%20RTOS#rtos-con-mbed--rtx)
 
-
-
+Di seguito una serie di riferimenti utili alla conoscenza base della piattaforma di sviluppo [mbed](https://os.mbed.com). I riferimenti sono relativi alle esercitazioni dell'anno accademico 2019-2020.
+* [Mbed online compiler](https://ide.mbed.com/compiler)
+* [Mbed Studio](https://os.mbed.com/studio)
+* [Piattaforma Mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%205%20-%20IO%20Digitale%20con%20mbed#overview)
+    * [Programmazione GPIO con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%205%20-%20IO%20Digitale%20con%20mbed#implementazione-ed-altri-dettagli)
+    * [Utilizzo delle interrupts con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%205%20-%20IO%20Digitale%20con%20mbed#interruptin)
+    * [Utilizzo di ADC e DAC con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%206%20-%20IO%20Analogico#io-analogico-con-mbed)
+    * [Utilizzo dei Timers con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%207%20-%20Timers%20e%20PWM#utilizzo-dei-timers-in-mbed)
+    * [Generazione PWM con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%207%20-%20Timers%20e%20PWM#generazione-pwm-con-mbed)
+    * [Comunicazione UART con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-usart-con-mbed)
+    * [Comunicazione I<sup>2</sup>C con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-i2c-con-mbed) 
+    * [Comunicazione  SPI con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-spi-con-mbed)
+     * [RTOS con mbed // RTX](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%209%20-%20RTOS#rtos-con-mbed--rtx)
