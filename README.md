@@ -11,7 +11,7 @@ Esercitazioni del corso di **F**ondamenti di **P**rogrammazione dei **S**istemi 
 * [STM32 Nucleo-F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html)
 * [Kit componenti base](https://www.amazon.it/dp/B01MQIO78W)
 * [Kit sensori](https://www.amazon.it/dp/B01N79PG4G)
-* [Elenco dettagliato del materiale utilizzato](#Elenco%20dettagliato%20del%20materiale%20utilizzato)
+* [Elenco dettagliato del materiale utilizzato](https://github.com/p-ansatz/FPSE-Esercitazioni#elenco-dettagliato-del-materiale-utilizzato)
 
 ### Documentazione
 * [Nucleo 64 - User Manual](https://www.st.com/resource/en/user_manual/dm00105823-stm32-nucleo-64-boards-mb1136-stmicroelectronics.pdf)
