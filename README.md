@@ -11,6 +11,7 @@ Esercitazioni del corso di **F**ondamenti di **P**rogrammazione dei **S**istemi 
 * [STM32 Nucleo-F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html)
 * [Kit componenti base](https://www.amazon.it/dp/B01MQIO78W)
 * [Kit sensori](https://www.amazon.it/dp/B01N79PG4G)
+* [Elenco dettagliato del materiale utilizzato](#Elenco%20dettagliato%20del%20materiale%20utilizzato)
 
 ### Documentazione
 * [Nucleo 64 - User Manual](https://www.st.com/resource/en/user_manual/dm00105823-stm32-nucleo-64-boards-mb1136-stmicroelectronics.pdf)
@@ -24,7 +25,7 @@ Esercitazioni del corso di **F**ondamenti di **P**rogrammazione dei **S**istemi 
 * [**Modern C** | Jens Gustedt](https://www.manning.com/books/modern-c)
 * [**Mastering the STM32 Microcontroller** | Carmine Noviello](https://leanpub.com/mastering-stm32)
 * [**The Definitive Guide to ARM Cortex-M3 and Cortex-M4 Processors** | Joseph Yiu](https://www.amazon.it/Definitive-Guide-Cortex®-M3-Cortex®-M4-Processors/dp/0124080820)
-* [**Fast and effective embedded systems design - Applying the ARM mbed** | Rob Toulson, Tim Wilmshurst](https://www.amazon.it/Fast-Effective-Embedded-Systems-Design/dp/0081008805)
+* [**STM32 Arm Programming for Embedded Systems** |  M.A. Mazidi, S. Chen, E. Ghaemi](https://www.amazon.it/STM32-Arm-Programming-Embedded-Systems/dp/0997925949/)
 
 ### Header pinout
 * [CN5 Header Pinout](HeadersPinout.md#CN5-Header-Pinout)
@@ -75,3 +76,30 @@ Di seguito una serie di riferimenti utili alla conoscenza base della piattaforma
     * [Comunicazione I<sup>2</sup>C con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-i2c-con-mbed) 
     * [Comunicazione  SPI con mbed](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%208%20-%20Comunicazione%20Seriale#comunicazione-spi-con-mbed)
      * [RTOS con mbed // RTX](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/Esercitazione%209%20-%20RTOS#rtos-con-mbed--rtx)
+
+
+***
+
+#### Elenco dettagliato del materiale utilizzato
+
+- STM32 Nucleo-F446RE
+- Cavo Mini-USB<->USB
+- Breadboard
+- Cavi
+- Resistori
+- Condensatori
+- Pulsanti
+- LED
+- Sensore di Movimento (Tipo: HC-SR501)
+- Potenziometro Rotativo
+- Sensore di temperatura analogico (Tipo: LMT84, LM35, NTC Termistore 10K)
+- Buzzer
+- Shift Register (Tipo: 74HC595N)
+- IMU I2C (Tipo: MPU-6050 in modulo GY-521)
+
+##### Materiale di utilizzo esclusivo nel secondo modulo del corso
+- Motore DC con driver di controllo
+- Servomotore
+- Encoder rotativo digitale
+- Sensore ad Ultrasuoni (Tipo: HC-SR04)
+-------------------
