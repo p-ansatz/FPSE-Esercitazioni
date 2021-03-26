@@ -137,7 +137,36 @@ Per un corretto sviluppo di un sistema embedded, può essere importante tener co
 :bookmark: Per quanto riguarda  il modulo **ST-Link** per la programmazione ed il debugging del microcontrollore si deve far riferimento alla [pagina ufficiale](https://www.st.com/en/development-tools/st-link-v2.html), sulla quale si trovano anche i driver necessari per utilizzare il modulo su sistemi Windows 7/8/10.
 
 ***
+
+### Programmare in Assembly in STM32Cube
+Il compilatore ARM presente all'interno dell'ambiente di sviluppo *STM32Cube* permette la scrittura di codice assembly all'interno del codice sorgente C, come specificato nella [documentazione ufficiale ARM.](https://developer.arm.com/documentation/100748/0615/Using-Assembly-and-Intrinsics-in-C-or-C---Code/Writing-inline-assembly-code)
+
+Per adoperare questa direttiva del compilatore, è necessario utilizzare la keyword `__asm`, che identifica sostanzialmente una sorta di *chiamata a funzione* e permette di incorporare codice assembly (inline) all'interno di una funzione C usando la [sintassi definita dai compilatori GNU.](https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html). In questo modo è possibile includere una singola istruzione o addirittura più istruzioni assembly all'interno di una funzione C.
+
+
+Di seguito viene implementata, a titolo di esempio, la funzione assembly che esegue il calcolo della sommatoria indicata di seguito:
+
+![sum = \sum_{i=1}^{n} i^2 = 1^2+2^2+...+n^2](https://render.githubusercontent.com/render/math?math=sum%20%3D%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%20i%5E2%20%3D%201%5E2%2B2%5E2%2B...%2Bn%5E2)
+
+```c
+int asm_square_sum(int n){
+  __asm ( "mov r1, #0\n"        //r1 = sum = 0
+          "mov r2, #1\n"        //r2 = i = 1
+          "loop1: cmp r2, r0\n" //i>n?
+            "bgt done1\n"       //True, jump to 'done'
+            "mul r3, r2, r2\n"  //temp = i*i
+            "add r1, r3\n"      //sum += temp
+            "add r2, #1\n"      //i++
+            "b loop1\n"
+          "done1:\n"
+            "mov r0, r1");
+}
+```
+
+Il codice mostra la modalità più semplificata di scrittura di multiple istruzioni assembly; si noti che ogni istruzione viene definita all'interno di una stringa (delimitata da `"`) che termina con il carattere `\n`. Tutte le stringhe vengono quindi passate alla funzione `__asm()`, che viene incapsulata all'interno di una normale funzione C cui operando (l'intero `n`) viene passato alla funzione tramite il registro `R0`.
+
 </br></br>
+
 
 ## Esercizi
 :pencil: Tradurre in codice Assembly la seguente funzione C:
