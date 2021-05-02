@@ -15,6 +15,9 @@ Di seguito un compendio relativo alle principali interfacce di comunicazione ser
   - [SPI](#spi)
     - [SPI nei microcontrollori STM32](#spi-nei-microcontrollori-stm32)
   - [Comunicazione USART in STM32Cube](#comunicazione-usart-in-stm32cube)
+    - [Invio dati acquisiti da ADC via UART](#invio-dati-acquisiti-da-adc-via-uart)
+    - [UART in modalità interrupt](#uart-in-modalità-interrupt)
+    - [Ricezione UART con DMA](#ricezione-uart-con-dma)
   - [Comunicazione I2C in STM32Cube](#comunicazione-i2c-in-stm32cube)
   - [Comunicazione SPI in STM32Cube](#comunicazione-spi-in-stm32cube)
   - [Esercizi](#esercizi)
@@ -243,7 +246,7 @@ A questo punto è possibile procedere all'invio dei dati facendo uso dei registr
 
 Il programma implementato si trova nella cartella di progetto `uart_simpleTX`.
 
-##
+### Invio dati acquisiti da ADC via UART
 
 Ovviamente, è possibile fare uso delle funzioni e strutture del driver **HAL** per instaurare una comunicazione **UART**, in questa ottica implementativa si passa per una prima configurazione con *STM32CubeMX*.
 
@@ -306,7 +309,7 @@ Si faccia attenzione al fatto che, per utilizzare la funzione `sprintf()` è nec
     <img src="img/printf_set.png">
 </p>
 
-##
+### UART in modalità interrupt
 
 Per usare invece la periferica **UART** in *modalità interrupt* è necessario utilizzare la interrupt associata a tale periferica ed intercettata dalla funzione `USARTx_IRQHandler()`. All'interno di questa funzione deve essere invocata `HAL_UART_IRQHandler()`, che si occuperà di invocare tutte le funzioni relative alle attività della periferica **UART**, gestendola in questa modalità *interrupt*.
 
@@ -343,6 +346,99 @@ che viene invocata nel ciclo di vita principale del programma, ma non è bloccan
 
 Si noti che, la non ripetuta invocazione della funzione 
 `HAL_UART_Receive_IT` è garantita dall'utilizzo adeguato della flag `UartReady`, definita come tipo `ITStatus`, si tratta di una `enum` definita per essere usata in queste situazioni con i valori **SET** (=1) e **RESET** (=0).
+
+### Ricezione UART con DMA
+
+> :dart:
+In molti tra i più moderni microcontrollori è presente una caratteristica considerata "di livello avanzato": si tratta del *controller DMA*. È un'unità hardware programmabile che permette alle periferiche interne al microcontrollore di accedere in maniera *diretta* alla memoria senza la necesittà di dover passare attraverso l'utilizzo della CPU. Questo permette, evidentemente, di migliorare l'efficienza della stessa unità di calcolo -demansionandola rispetto ad operazioni di trasferimento dati tra SRAM e periferiche- e di aumentar le performance delle periferiche in comunicazione con l'esterno, come ad esempio la periferica **UART**.
+
+Noti tutti gli aspetti teorici relativi al *controller DMA*, è possibile utilizzarlo in maniera -relativamente- semplice grazie alle strutture fornite dal driver **HAL**.  Di seguito, un esempio di utilizzo di questo modulo insieme alla perifericha **UART** utilizzando una serie di strutture e funzioni, come:
+
+```c
+typedef struct {
+    DMA_Stream_TypeDef *Instance;           // Register base address
+    DMA_InitTypeDef Init;                   // DMA communication parameters
+    HAL_LockTypeDef Lock;                   // DMA locking object
+    __IO HAL_DMA_StateTypeDef State;        // DMA transfer state
+    void *Parent;                           // Parent object state
+    void (* XferCpltCallback)( struct __DMA_HandleTypeDef * hdma);
+    void (* XferHalfCpltCallback)( struct __DMA_HandleTypeDef * hdma);
+    void (* XferM1CpltCallback)( struct __DMA_HandleTypeDef * hdma);
+    void (* XferErrorCallback)( struct __DMA_HandleTypeDef * hdma);
+    __IO uint32_t ErrorCode;                // DMA Error code
+    uint32_t StreamBaseAddress;             // DMA Stream Base Address
+    uint32_t StreamIndex;                   //!< DMA Stream Index
+} DMA_HandleTypeDef;
+```
+in cui vi sono alcuni campi come: `Instance` che punta al controller da utilizzare, `Init` che punta ad una istanza di una struttura di configurazione (`DMA_InitTypeDef`) e `Parent` che è un puntatore utilizzato per tener traccia delle periferiche associata al *controller DMA*. Nel caso di utilizzo del *DMA* con periferica **UART**, il putatore `Parent` sarà legato ad una istanza di `UART_HandleTypeDef`.
+
+Altra struttura è, equivalentemente ad altre periferiche,
+
+```c
+typedef struct {
+    uint32_t Channel;
+    uint32_t Direction;
+    uint32_t PeriphInc;
+    uint32_t MemInc;
+    uint32_t PeriphDataAlignment;
+    uint32_t MemDataAlignment;
+    uint32_t Mode;
+    uint32_t Priority;
+    uint32_t FIFOMode;
+    uint32_t FIFOThreshold;
+    uint32_t MemBurst;
+    uint32_t PeriphBurst;
+} DMA_InitTypeDef;
+```
+in cui alcuni campi di interesse sono:
+* `Channel`: che specifica il canale *DMA* da utilizzare, tramite le costanti `DMA_CHANNEL_0`, `DMA_CHANNEL_1` fino `DMA_CHANNEL_7`;
+* `Direction`: utile per definire la direzione del trasferimento che deve effettuare il controller;
+* `Mode`: variabile utilizzata per specificare la modalità di utilizzo del controller, che può essere `DMA_NORMAL` o `DMA_CIRCULAR`.
+
+
+A seguito della configurazione del modulo *DMA*, per utilizzarlo correttamente è indispensabile:
+1. configurare indirizzo di memoria e periferica da far gestire al controller;
+2. specificare la quantità di dati da trasferire;
+3. abilitare il controller *DMA*;
+4. abilitare la periferica associata al funzionamento in *DMA-mode*.
+
+Grazie al driver **HAL**, tutte le prime operazioni si eseguono con la chiamata alla funzione seguente:
+```c
+HAL_StatusTypeDef HAL_DMA_Start(DMA_HandleTypeDef *hdma, uint32_t SrcAddress, uint32_t DstAddress, uint32_t DataLength);
+```
+
+Per procedere alla implementazione software è necessario individuare *channel/stream* del controller *DMA* da utilizzare per la periferica desiderata, che potrebbe variare per diversi microcontrollori. Nel caso del modulo STM32-F446RE, volendo utilizzare il modulo *DMA* con la periferica **UART2** si fa riferimento a quanto indicato di seguito:
+|UART2 TX | UART2 RX |
+|:-:|:-:|
+|DMA1/CH4/Stream 6|DMA1/CH4/Stream 5|
+
+La configurazione della periferica **UART** e del *controller DMA* avviene completamente utilizzando l'interfaccia di *CubeMX*, configurando il *controller DMA1* nel pannello di gestione del modulo **UART2** ed attivando inoltre le necessarie interrupts.
+
+<p align="center">
+    <img src="img/DMA_MX_Config.png">
+</p>
+
+<p align="center">
+    <img src="img/DMA_MX_Config2.png">
+</p>
+
+
+A seguito della configurazione è necessario esclusivamente legare la periferica al controller tramite la chiamata a
+```c
+__HAL_LINKDMA(&huart2, hdmarx, hdma_usart2_rx);
+```
+e, successivamente, utilizzare in maniera adeguata la funzione
+```c
+HAL_UART_Receive_DMA(&huart2, data, 3);
+```
+per comandare la ricezione da periferica **UART** tramtie *DMA*. Si noti che, connettendo il controller alla periferica tramite interfaccia grafica di *CubeMX*, non è più necessario implementare una serie di chiamate a strutture e funzioni di configurazione, che si troveranno nel file `stm32f4xx_hal_msp.c` .
+> :monocle_face: `stm32f4xx_hal_msp.c` (MSP = MCU Support package): this file defines all
+initialization functions to configure the peripheral instances according to the user
+configuration (pin allocation, enabling of clock, use of DMA and Interrupts).
+
+Nel progetto `uart_DMA` è possibile analizzare il codice utilizzato per realizzare una semplice applicazione di ricezione dati tramite **UART** sfruttando il *controller DMA*. Si presti attenzione anche alle *IRQ* gestite, in accordo alla strutturazione dei file di *STM32Cube*, nel file `stm32f4xx_it.c` .
+
+> :monocle_face: `stm32f4xx_it.c` (IT = InTerrupt): this file defines all interrupts handlers and interrupts service routine
 
 ***
 
