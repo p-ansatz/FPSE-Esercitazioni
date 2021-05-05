@@ -415,11 +415,11 @@ Per procedere alla implementazione software è necessario individuare *channel/s
 La configurazione della periferica **UART** e del *controller DMA* avviene completamente utilizzando l'interfaccia di *CubeMX*, configurando il *controller DMA1* nel pannello di gestione del modulo **UART2** ed attivando inoltre le necessarie interrupts.
 
 <p align="center">
-    <img src="img/DMA_MX_Config.png">
+    <img src="img/DMA_MX_config.png">
 </p>
 
 <p align="center">
-    <img src="img/DMA_MX_Config2.png">
+    <img src="img/DMA_MX_config2.png">
 </p>
 
 
