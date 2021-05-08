@@ -61,9 +61,9 @@ Esercitazioni del corso di **F**ondamenti di **P**rogrammazione dei **S**istemi 
         * [I<sup>2</sup>C in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/07%20-%20Comunicazione%20Seriale#comunicazione-i2c-in-stm32cube)
     * [SPI](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/07%20-%20Comunicazione%20Seriale#spi)
         * [SPI in STM32Cube](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/07%20-%20Comunicazione%20Seriale#comunicazione-spi-in-stm32cube)
-* [Sistemi Embedded e RTOS](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/08%20-%20RTOS#sistemi-embedded-e-rtos)
-    * [CMSIS-RTOS](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/08%20-%20RTOS#cmsis-rtos)
-    * [RTOS in STM32Cube // FreeRTOS](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2019_2020/08%20-%20RTOS#rtos-in-stm32cube--freertos)
+* [Sistemi Embedded e RTOS](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/08%20-%20RTOS#sistemi-embedded-e-rtos)
+    * [CMSIS-RTOS](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/08%20-%20RTOS#cmsis-rtos)
+    * [RTOS in STM32Cube // FreeRTOS](https://github.com/p-ansatz/FPSE-Esercitazioni/tree/2020_2021/08%20-%20RTOS#rtos-in-stm32cube--freertos)
 
 Di seguito una serie di riferimenti utili alla conoscenza base della piattaforma di sviluppo [mbed](https://os.mbed.com). I riferimenti sono relativi alle esercitazioni dell'anno accademico 2019-2020.
 * [Mbed online compiler](https://ide.mbed.com/compiler)
